@@ -1,4 +1,4 @@
-﻿configuration SetupCollector
+configuration SetupCollector
 {
     Import-DscResource -ModuleName xWindowsEventForwarding
     xWEFCollector Enabled

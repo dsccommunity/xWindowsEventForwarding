@@ -1,4 +1,4 @@
-﻿$Exists = test-path 'C:\Program Files\WindowsPowerShell\Modules\xWindowsEventForwarding\'
+$Exists = test-path 'C:\Program Files\WindowsPowerShell\Modules\xWindowsEventForwarding\'
 if (!$Exists) {
     mkdir 'C:\Program Files\WindowsPowerShell\Modules\xWindowsEventForwarding\'
     New-ModuleManifest -Path 'C:\Program Files\WindowsPowerShell\Modules\xWindowsEventForwarding\xWindowsEventForwarding.psd1' -Guid 'ab5e14f9-156e-49d2-ae1b-96576a929f3b' -CompanyName 'Microsoft Corporation' -Copyright 2015 -ModuleVersion '0.1.0.0' -Description 'This module can be used to manage configuration of a Windows Event Forwarding server in a Colelctor role.' -Author 'PowerShell Team' -PowerShellVersion '5.0'
