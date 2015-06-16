@@ -1,5 +1,6 @@
-Introduction
-============
+[![Build status](https://ci.appveyor.com/api/projects/status/8ds3u9f79v2cwx54/branch/master?svg=true)](https://ci.appveyor.com/project/PowerShell/xwindowseventforwarding/branch/master)
+
+# xWindowsEventForwarding
 
 The **xWindowsEventForwarding** module is a part of the Windows PowerShell Desired State Configuration (DSC) Resource Kit, which is a collection of DSC Resources. This module contains the **xWEFCollector and xWEFSubscription** resources. These resources enable you to configure a server to become an Event Collector role and create complex Subscriptions, with simple declarative language.
 
