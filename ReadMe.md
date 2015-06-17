@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/8ds3u9f79v2cwx54/branch/master?svg=true)](https://ci.appveyor.com/project/PowerShell/xwindowseventforwarding/branch/master)
+﻿[![Build status](https://ci.appveyor.com/api/projects/status/8ds3u9f79v2cwx54/branch/master?svg=true)](https://ci.appveyor.com/project/PowerShell/xwindowseventforwarding/branch/master)
 
 # xWindowsEventForwarding
 
@@ -116,11 +116,10 @@ We reserve resource and module names without prefixes ("x" or "c") for future us
 Versions
 --------
 
-**0.1.0.0**
-
-- Initial release with the following resources
-	- xWEFCollector
-	- xWEFSubscription
+### 1.0.0.0
+* Initial release of xWindowsEventForwarding module with following modules:
+	* xWEFCollector
+	* xWEFSubscription
 
 Examples
 --------
