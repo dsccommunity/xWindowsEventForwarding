@@ -1,4 +1,4 @@
-ï»¿[![Build status](https://ci.appveyor.com/api/projects/status/8ds3u9f79v2cwx54/branch/master?svg=true)](https://ci.appveyor.com/project/PowerShell/xwindowseventforwarding/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/8ds3u9f79v2cwx54/branch/master?svg=true)](https://ci.appveyor.com/project/PowerShell/xwindowseventforwarding/branch/master)
 
 # xWindowsEventForwarding
 
@@ -20,7 +20,7 @@ To install **xWindowsEventForwarding** module
 
 -   If you are using WMF4 / PowerShell Version 4: Unzip the content under $env:ProgramFilesWindowsPowerShellModules folder
 
--   If you are using WMF5 Preview: From an elevated PowerShell session run â€˜Install-Module xWindowsEventForwardingâ€™
+-   If you are using WMF5 Preview: From an elevated PowerShell session run ‘Install-Module xWindowsEventForwarding’
 
 To confirm installation
 
@@ -73,6 +73,9 @@ Windows Event Forwarding can be used in either a Collector Initiated or Source I
 There is also [an article on MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/bb427443(v=vs.85).aspx) that provides a high level understanding of how Windows Event Forwarding should be configured.
 
 In addition, For Windows Event Collection to function there are requirements that must be met on the Collector as well as on the servers that act as the Source of forwarded events.  In a Collector Initiated configuration, the only required change to the source machines will be to add the Collector machine domain account to the local **Event Log Readers** group.  In a Source Initiated configuration, DSC must be used in combination with Group Policy to configure the source machines with the Collector address before events will be forwarded.
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ### Event Queries ###
 
