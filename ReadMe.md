@@ -120,6 +120,7 @@ Versions
 --------
 
 ### Unreleased
+* Converted appveyor.yml to install Pester from PSGallery instead of from Chocolatey.
 
 ### 1.0.0.0
 
