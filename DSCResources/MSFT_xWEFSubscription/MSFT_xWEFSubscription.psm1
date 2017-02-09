@@ -115,8 +115,7 @@ function Set-TargetResource
         [System.String[]]
         $AllowedSourceNonDomainComputers,
 
-        [System.String]
-        $AllowedSourceDomainComputers = 'O:NSG:NSD:(A;;GA;;;DC)(A;;GA;;;NS)',
+        [System.String]        $AllowedSourceDomainComputers = 'O:NSG:NSD:(A;;GA;;;DC)(A;;GA;;;NS)',
 
         [System.String[]]
         $Query = @('Application:*','System:*'),
@@ -167,7 +166,7 @@ function Set-TargetResource
     <Locale Language="$Locale"/>
     <LogFile>$LogFile</LogFile>
     <PublisherName>Microsoft-Windows-EventCollector</PublisherName>
-    <CredentialType>$CredentialsType</CredentialType>
+    <CredentialType>$CredentialType</CredentialType>
 
 "@
 
