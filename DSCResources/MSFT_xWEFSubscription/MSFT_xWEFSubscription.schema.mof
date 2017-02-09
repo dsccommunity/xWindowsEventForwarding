@@ -13,7 +13,7 @@ class MSFT_xWEFSubscription : OMI_BaseResource
     [Write, Description("Frequency to verify connectivity, default 20000")] Uint64 HeartBeatInterval;
     [Write, Description("Should the collector read existing or only new events, default false"), ValueMap{"true","false"}, Values{"true","false"}] String ReadExistingEvents;
     [Write, Description("Determines whether to require SSL, default HTTP"), ValueMap{"HTTP","HTTPS"}, Values{"HTTP","HTTPS"}] String TransportName;
-    [Write, Description("Set the port number that WinRM should use to make a connection, default 5985")] String TransportPort;
+    [Write, Description("Set the port number that WinRM should use to make a connection, default null")] String TransportPort;
     [Write, Description("Format that event logs will be submitted in, default RenderedText")] String ContentFormat;
     [Write, Description("Sets the subscription Locale, default en-US")] String Locale;
     [Write, Description("Sets the event log that the collected events will be written to, default ForwardedEvents")] String LogFile;

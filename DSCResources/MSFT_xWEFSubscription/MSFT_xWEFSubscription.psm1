@@ -37,11 +37,13 @@ function Get-TargetResource
         HeartBeatInterval = [System.UInt64]$GetSub.Subscription.Delivery.PushSettings.Heartbeat.Interval
         ReadExistingEvents = [System.String]$GetSub.Subscription.ReadExistingEvents
         TransportName = [System.String]$GetSub.Subscription.TransportName
+        TransportPort = [System.String]$GetSub.SUbscription.TransportPort
         ContentFormat = [System.String]$GetSub.Subscription.ContentFormat
         Locale = [System.String]$GetSub.Subscription.Locale.Language
         LogFile = [System.String]$GetSub.Subscription.LogFile
         CredentialType = [System.String]$GetSub.Subscription.CredentialType
-        AllowedSourceNonDomainComputers = [System.String[]]$GetSub.Subscription.AllowedSourceNonDomainComputers        AllowedSourceDomainComputers = [System.String]$GetSub.Subscription.AllowedSourceDomainComputers
+        AllowedSourceNonDomainComputers = [System.String[]]$GetSub.Subscription.AllowedSourceNonDomainComputers        
+        AllowedSourceDomainComputers = [System.String]$GetSub.Subscription.AllowedSourceDomainComputers
         Query = [System.String[]]$GetSub.Subscription.Query.'#cdata-section'
     }
 
@@ -97,7 +99,7 @@ function Set-TargetResource
         $TransportName = 'HTTP',
 
         [System.String]
-        $TransportPort = '5985',
+        $TransportPort = $null,
 
         [System.String]
         $ContentFormat = 'RenderedText',
@@ -270,7 +272,7 @@ function Test-TargetResource
         $TransportName = 'HTTP',
 
         [System.String]
-        $TransportPort = '5985',
+        $TransportPort = $null,
 
         [System.String]
         $ContentFormat = 'RenderedText',
