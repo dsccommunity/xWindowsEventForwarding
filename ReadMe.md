@@ -12,7 +12,6 @@ this module.
 If you would like to modify the **xWindowsEventForwarding** module, feel free. When modifying, please update the module name, resource friendly name, and MOF class name (instructions below). As specified in the license, you may copy or modify this resource as long as they are used on the Windows Platform.
 
 For more information about Windows PowerShell Desired State Configuration, check out the blog posts on the [PowerShell Blog](http://blogs.msdn.com/b/powershell/) ([this](http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx) is a good starting point). There are also great community resources, such as [PowerShell.org](http://powershell.org/wp/tag/dsc/), or [PowerShell Magazine](http://www.powershellmagazine.com/tag/dsc/). For more information on the DSC Resource Kit, checkout [this blog post](http://go.microsoft.com/fwlink/?LinkID=389546).
-
 Installation
 ------------
 
@@ -20,7 +19,7 @@ To install **xWindowsEventForwarding** module
 
 -   If you are using WMF4 / PowerShell Version 4: Unzip the content under $env:ProgramFilesWindowsPowerShellModules folder
 
--   If you are using WMF5 Preview: From an elevated PowerShell session run ‘Install-Module xWindowsEventForwarding’
+-   If you are using WMF5 Preview: From an elevated PowerShell session run â€˜Install-Module xWindowsEventForwardingâ€™
 
 To confirm installation
 
@@ -59,7 +58,7 @@ Details
 - **ContentFormat**: Format that event logs will be submitted in, default RenderedText
 - **Locale**: Sets the subscription Locale, default en-US
 - **LogFile**: Sets the event log that the collected events will be written to, default ForwardedEvents
-- **CredentialsType**: Sets the credential type used for authenticating to WinRM, default Default
+- **CredentialType**: Sets the credential type used for authenticating to WinRM, default Default
 - **AllowedSourceNonDomainComputers**: This parameter has not been fully implemented, only required for source initiated scenarios, provide XML to set IssuerCAList, AllowedSubjectList, or DeniedSubjectList if this will be used, default empty string
 - **AllowedSourceDomainComputers**: In Source Initiated scenario this SDDL determines who can push events, default O:NSG:NSD:(A;;GA;;;DC)(A;;GA;;;NS) which equates to Domain Computers and Network Service
 - **Query**: Expects an array of hashtables that set which events should be collected, default is all application and system logs
@@ -87,7 +86,7 @@ So to query the application log for all events, the query would be "Application:
 
 For multiple queries, comma separate multiple strings in an array.
 
-@('Application:*','System:*[System[(EventID=99)]]')
+`@('Application:*','System:*[System[(EventID=99)]]')`
 
 ### List of Source Machines ###
 
