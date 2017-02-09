@@ -103,12 +103,12 @@ When making changes to these resources, we suggest the following practice
 1. Update the following names by replacing MSFT with your company/community name
 and replacing the **"x" with **"c" (short for "Community") or another prefix of your
 choice
- -	Module name (ex: xModule becomes cModule)
- -	Resource folder (ex: MSFT\_xResource becomes Contoso\_xResource)
- -	Resource Name (ex: MSFT\_xResource becomes Contoso\_cResource)
- -	Resource Friendly Name (ex: xResource becomes cResource)
- -	MOF class name (ex: MSFT\_xResource becomes Contoso\_cResource)
- -	Filename for the <resource\>.schema.mof (ex: MSFT\_xResource.schema.mof becomes Contoso\_cResource.schema.mof)
+ -   Module name (ex: xModule becomes cModule)
+ -   Resource folder (ex: MSFT\_xResource becomes Contoso\_xResource)
+ -   Resource Name (ex: MSFT\_xResource becomes Contoso\_cResource)
+ -   Resource Friendly Name (ex: xResource becomes cResource)
+ -   MOF class name (ex: MSFT\_xResource becomes Contoso\_cResource)
+ -   Filename for the <resource\>.schema.mof (ex: MSFT\_xResource.schema.mof becomes Contoso\_cResource.schema.mof)
 
 2. Update module and metadata information in the module manifest  
 3. Update any configuration that use these resources
@@ -124,8 +124,8 @@ Versions
 ### 1.0.0.0
 
 * Initial release of xWindowsEventForwarding module with following modules:
-	* xWEFCollector
-	* xWEFSubscription
+    * xWEFCollector
+    * xWEFSubscription
 
 Examples
 --------
@@ -133,26 +133,28 @@ Examples
 **Example 1**:  Enable Collector role and a subscription that includes all Application
 and System logs from server tester.contoso.com.
 
-	configuration SetupCollector
-	{
-	    Import-DscResource -ModuleName xWindowsEventForwarding
-	    xWEFCollector Enabled
-	    {
-	        Ensure = "Present"
-	        Name = "Enabled"
-	    }
-	    xWEFSubscription TestSub
-	    {
-	        SubscriptionID = "TestSub"
-	        Ensure = "Present"
-	        SubscriptionType = 'CollectorInitiated'
-	        Address = 'tester.contoso.com'
-	        DependsOn = "[xWEFCollector]Enabled"
-	    } 
-	}
-	SetupCollector -out c:\DSC\ -force
-	Start-DscConfiguration -Wait -Force -Path c:\DSC\ -Verbose
+```powershell
+configuration SetupCollector
+{
+    Import-DscResource -ModuleName xWindowsEventForwarding
+    xWEFCollector Enabled
+    {
+        Ensure = "Present"
+        Name = "Enabled"
+    }
+    xWEFSubscription TestSub
+    {
+        SubscriptionID = "TestSub"
+        Ensure = "Present"
+        SubscriptionType = 'CollectorInitiated'
+        Address = 'tester.contoso.com'
+        DependsOn = "[xWEFCollector]Enabled"
+    } 
+}
+SetupCollector -out c:\DSC\ -force
+Start-DscConfiguration -Wait -Force -Path c:\DSC\ -Verbose
 
-	# Note that this configuration will apply to the Collector node.  On Source
-	# nodes the machine account of the Collector must be added to the local
-	# group "Event Log Readers".
+# Note that this configuration will apply to the Collector node.  On Source
+# nodes the machine account of the Collector must be added to the local
+# group "Event Log Readers".
+```

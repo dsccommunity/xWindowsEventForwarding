@@ -13,7 +13,7 @@ if (!$Exists) {
     $HeartBeatInterval = New-xDscResourceProperty -Name HeartBeatInterval -Type Uint64 -Attribute Write -Description 'Frequency to verify connectivity, default 20000'
     $ReadExistingEvents = New-xDscResourceProperty -Name ReadExistingEvents -Type String -Attribute Write -ValidateSet 'true','false' -Description 'Should the collector read existing or only new events, default false'
     $TransportName = New-xDscResourceProperty -Name TransportName -Type String -Attribute Write -ValidateSet 'HTTP','HTTPS' -Description 'Determines whether to require SSL, default HTTP'
-    $TransportPort = New-xDscResourceProperty -Name TransportPort -Type String -Attribute Write -Description 'Set the port number that WinRM should use to make a connection, default 5985'
+    $TransportPort = New-xDscResourceProperty -Name TransportPort -Type String -Attribute Write -Description 'Set the port number that WinRM should use to make a connection, default null'
     $ContentFormat = New-xDscResourceProperty -Name ContentFormat -Type String -Attribute Write -Description 'Format that event logs will be submitted in, default RenderedText'
     $Locale = New-xDscResourceProperty -Name Locale -Type String -Attribute Write -Description 'Sets the subscription Locale, default en-US'
     $LogFile = New-xDscResourceProperty -Name LogFile -Type String -Attribute Write -Description 'Sets the event log that the collected events will be written to, default ForwardedEvents'
@@ -26,4 +26,4 @@ if (!$Exists) {
     $Ensure = New-xDscResourceProperty -Name Ensure -Type String -Attribute Write -ValidateSet 'Present','Absent' -Description 'Determines whether the Collector service should be enabled or disabled'
     $Name = New-xDscResourceProperty -Name Name -Type String -Attribute Key -Description 'Provide a unique name for the setting'
     New-xDscResource -Name MSFT_xWEFCollector -Property $Ensure, $Name -Path 'C:\Program Files\WindowsPowerShell\Modules\' -ModuleName xWindowsEventForwarding -ClassVersion '0.1.0.0' -FriendlyName 'xWEFCollector'
-    }
+}
