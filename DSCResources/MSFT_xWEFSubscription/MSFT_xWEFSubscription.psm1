@@ -41,8 +41,7 @@ function Get-TargetResource
         Locale = [System.String]$GetSub.Subscription.Locale.Language
         LogFile = [System.String]$GetSub.Subscription.LogFile
         CredentialsType = [System.String]$GetSub.Subscription.CredentialsType
-        AllowedSourceNonDomainComputers = [System.String[]]$GetSub.Subscription.AllowedSourceNonDomainComputers
-        AllowedSourceDomainComputers = [System.String]$GetSub.Subscription.AllowedSourceDomainComputers
+        AllowedSourceNonDomainComputers = [System.String[]]$GetSub.Subscription.AllowedSourceNonDomainComputers        AllowedSourceDomainComputers = [System.String]$GetSub.Subscription.AllowedSourceDomainComputers
         Query = [System.String[]]$GetSub.Subscription.Query.'#cdata-section'
     }
 
@@ -111,7 +110,7 @@ function Set-TargetResource
 
         [ValidateSet("Default","Basic","Negotiate","Digest")]
         [System.String]
-        $CredentialsType = 'Default',
+        $CredentialType = 'Default',
 
         [System.String[]]
         $AllowedSourceNonDomainComputers,
@@ -168,7 +167,7 @@ function Set-TargetResource
     <Locale Language="$Locale"/>
     <LogFile>$LogFile</LogFile>
     <PublisherName>Microsoft-Windows-EventCollector</PublisherName>
-    <CredentialsType>$CredentialsType</CredentialsType>
+    <CredentialType>$CredentialsType</CredentialType>
 
 "@
 
