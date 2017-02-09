@@ -37,11 +37,12 @@ function Get-TargetResource
         HeartBeatInterval = [System.UInt64]$GetSub.Subscription.Delivery.PushSettings.Heartbeat.Interval
         ReadExistingEvents = [System.String]$GetSub.Subscription.ReadExistingEvents
         TransportName = [System.String]$GetSub.Subscription.TransportName
+        TransportPort = [System.String]$GetSub.SUbscription.TransportPort
         ContentFormat = [System.String]$GetSub.Subscription.ContentFormat
         Locale = [System.String]$GetSub.Subscription.Locale.Language
         LogFile = [System.String]$GetSub.Subscription.LogFile
-        CredentialsType = [System.String]$GetSub.Subscription.CredentialsType
-        AllowedSourceNonDomainComputers = [System.String[]]$GetSub.Subscription.AllowedSourceNonDomainComputers
+        CredentialType = [System.String]$GetSub.Subscription.CredentialType
+        AllowedSourceNonDomainComputers = [System.String[]]$GetSub.Subscription.AllowedSourceNonDomainComputers        
         AllowedSourceDomainComputers = [System.String]$GetSub.Subscription.AllowedSourceDomainComputers
         Query = [System.String[]]$GetSub.Subscription.Query.'#cdata-section'
     }
@@ -98,7 +99,7 @@ function Set-TargetResource
         $TransportName = 'HTTP',
 
         [System.String]
-        $TransportPort = '5985',
+        $TransportPort = $null,
 
         [System.String]
         $ContentFormat = 'RenderedText',
@@ -111,13 +112,12 @@ function Set-TargetResource
 
         [ValidateSet("Default","Basic","Negotiate","Digest")]
         [System.String]
-        $CredentialsType = 'Default',
+        $CredentialType = 'Default',
 
         [System.String[]]
         $AllowedSourceNonDomainComputers,
 
-        [System.String]
-        $AllowedSourceDomainComputers = 'O:NSG:NSD:(A;;GA;;;DC)(A;;GA;;;NS)',
+        [System.String]        $AllowedSourceDomainComputers = 'O:NSG:NSD:(A;;GA;;;DC)(A;;GA;;;NS)',
 
         [System.String[]]
         $Query = @('Application:*','System:*'),
@@ -168,7 +168,7 @@ function Set-TargetResource
     <Locale Language="$Locale"/>
     <LogFile>$LogFile</LogFile>
     <PublisherName>Microsoft-Windows-EventCollector</PublisherName>
-    <CredentialsType>$CredentialsType</CredentialsType>
+    <CredentialType>$CredentialType</CredentialType>
 
 "@
 
@@ -272,7 +272,7 @@ function Test-TargetResource
         $TransportName = 'HTTP',
 
         [System.String]
-        $TransportPort = '5985',
+        $TransportPort = $null,
 
         [System.String]
         $ContentFormat = 'RenderedText',
@@ -285,7 +285,7 @@ function Test-TargetResource
 
         [ValidateSet("Default","Basic","Negotiate","Digest")]
         [System.String]
-        $CredentialsType = 'Default',
+        $CredentialType = 'Default',
 
         [System.String[]]
         $AllowedSourceNonDomainComputers,
