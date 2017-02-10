@@ -37,6 +37,7 @@ function Get-TargetResource
         HeartBeatInterval = [System.UInt64]$GetSub.Subscription.Delivery.PushSettings.Heartbeat.Interval
         ReadExistingEvents = [System.String]$GetSub.Subscription.ReadExistingEvents
         TransportName = [System.String]$GetSub.Subscription.TransportName
+        TransportPort = [System.String]$GetSub.Subscription.TransportPort
         ContentFormat = [System.String]$GetSub.Subscription.ContentFormat
         Locale = [System.String]$GetSub.Subscription.Locale.Language
         LogFile = [System.String]$GetSub.Subscription.LogFile
@@ -98,7 +99,7 @@ function Set-TargetResource
         $TransportName = 'HTTP',
 
         [System.String]
-        $TransportPort = '5985',
+        $TransportPort = $null,
 
         [System.String]
         $ContentFormat = 'RenderedText',
@@ -168,12 +169,12 @@ function Set-TargetResource
     <Locale Language="$Locale"/>
     <LogFile>$LogFile</LogFile>
     <PublisherName>Microsoft-Windows-EventCollector</PublisherName>
-    <CredentialsType>$CredentialsType</CredentialsType>
-
 "@
 
     if ($SubscriptionType -eq 'CollectorInitiated') {
     $Create += @"
+    <CredentialsType>$CredentialsType</CredentialsType>
+
     <EventSources>
 
 "@
@@ -272,7 +273,7 @@ function Test-TargetResource
         $TransportName = 'HTTP',
 
         [System.String]
-        $TransportPort = '5985',
+        $TransportPort = $null,
 
         [System.String]
         $ContentFormat = 'RenderedText',
