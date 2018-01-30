@@ -168,12 +168,12 @@ function Set-TargetResource
     <Locale Language="$Locale"/>
     <LogFile>$LogFile</LogFile>
     <PublisherName>Microsoft-Windows-EventCollector</PublisherName>
-    <CredentialsType>$CredentialsType</CredentialsType>
 
 "@
 
     if ($SubscriptionType -eq 'CollectorInitiated') {
     $Create += @"
+    <CredentialsType>$CredentialsType</CredentialsType>
     <EventSources>
 
 "@
