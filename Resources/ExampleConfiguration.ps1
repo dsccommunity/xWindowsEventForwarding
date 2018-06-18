@@ -16,7 +16,7 @@ configuration SetupCollector
         MaxItems = 5
         Query = @('Application:*','System:*[System[(EventID=99)]]')
         DependsOn = "[xWEFCollector]Enabled"
-    } 
+    }
 
 }
 SetupCollector -out c:\DSC\ -force
