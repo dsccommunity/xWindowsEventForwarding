@@ -125,7 +125,7 @@ function Set-TargetResource
         [System.String[]]
         $Address = @('source.wef.test')
     )
-    
+
     if ((get-service wecsvc).Status -ne 'Running') {throw 'The xWEFSubscription resource requires that the Wecsvc service be in a running state.  Set the xWEFCollectorService resource to Ensure = Present or use wecutil qc.'}
 
     if ($Ensure -eq 'Present') {
@@ -299,11 +299,11 @@ function Test-TargetResource
         [System.String[]]
         $Address = @('source.wef.test')
     )
-    
+
     if ((get-service wecsvc).Status -ne 'Running') {throw 'The xWEFSubscription resource requires that the Wecsvc service be in a running state.  Set the xWEFCollectorService resource to Ensure = Present or use wecutil qc.'}
 
     $Get = Get-TargetResource -SubscriptionID $SubscriptionID -SubscriptionType $SubscriptionType
-    
+
     $result = [System.Boolean]$true
 
     foreach ($g in $Get.Keys) {
@@ -312,11 +312,10 @@ function Test-TargetResource
             if ($test -eq [System.Boolean]$false) {$result = [System.Boolean]$false}
             }
     }
-    
+
     $result
 }
 # Test-TargetResource -SubscriptionID TestSub -Ensure Present -SubscriptionType CollectorInitiated
-
 
 function Convert-QueryString {
 param (
@@ -326,6 +325,5 @@ $string
 )
     return @{Path=$($string.split(':')[0]);Select=$($string.split(':')[1])}
 }
-
 
 Export-ModuleMember -Function *-TargetResource

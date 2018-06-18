@@ -141,20 +141,20 @@ and System logs from server tester.contoso.com.
 ```powershell
 configuration SetupCollector
 {
-	Import-DscResource -ModuleName xWindowsEventForwarding
-	xWEFCollector Enabled
-	{
-		Ensure = "Present"
-		Name = "Enabled"
-	}
-	xWEFSubscription TestSub
-	{
-		SubscriptionID = "TestSub"
-		Ensure = "Present"
-		SubscriptionType = 'CollectorInitiated'
-		Address = 'tester.contoso.com'
-		DependsOn = "[xWEFCollector]Enabled"
-	}
+    Import-DscResource -ModuleName xWindowsEventForwarding
+    xWEFCollector Enabled
+    {
+        Ensure = "Present"
+        Name = "Enabled"
+    }
+    xWEFSubscription TestSub
+    {
+        SubscriptionID = "TestSub"
+        Ensure = "Present"
+        SubscriptionType = 'CollectorInitiated'
+        Address = 'tester.contoso.com'
+        DependsOn = "[xWEFCollector]Enabled"
+    }
 }
 SetupCollector -out c:\DSC\ -force
 Start-DscConfiguration -Wait -Force -Path c:\DSC\ -Verbose
