@@ -2,7 +2,7 @@
 #      environment configuration  #
 #---------------------------------#
 
-version: 1.0.{build}.0 # TODO: Modify version so it fits your versioning.
+version: 1.0.{build}.0
 install:
     - git clone https://github.com/PowerShell/DscResource.Tests
     - ps: Write-Verbose -Message "PowerShell version $($PSVersionTable.PSVersion)" -Verbose
@@ -21,9 +21,6 @@ build: false
 
 test_script:
     - ps: |
-        # TODO:
-        # To use -CodeCovIo parameter, the repository need to connected
-        # to Codecov (see https://codecov.io/).
         Invoke-AppveyorTestScriptTask -CodeCoverage -CodeCovIo -ExcludeTag @()
 #---------------------------------#
 #      deployment configuration   #
