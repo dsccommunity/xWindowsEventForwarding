@@ -13,29 +13,25 @@ If you would like to modify the **xWindowsEventForwarding** module, feel free. W
 
 For more information about Windows PowerShell Desired State Configuration, check out the blog posts on the [PowerShell Blog](http://blogs.msdn.com/b/powershell/) ([this](http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx) is a good starting point). There are also great community resources, such as [PowerShell.org](http://powershell.org/wp/tag/dsc/), or [PowerShell Magazine](http://www.powershellmagazine.com/tag/dsc/). For more information on the DSC Resource Kit, checkout [this blog post](http://go.microsoft.com/fwlink/?LinkID=389546).
 
-Installation
-------------
+## Installation
 
 To install **xWindowsEventForwarding** module
 
--   If you are using WMF4 / PowerShell Version 4: Unzip the content under $env:ProgramFilesWindowsPowerShellModules folder
-
--   If you are using WMF5 Preview: From an elevated PowerShell session run �Install-Module xWindowsEventForwarding�
+- If you are using WMF4 / PowerShell Version 4: Unzip the content under $env:ProgramFilesWindowsPowerShellModules folder
+- If you are using WMF5 Preview: From an elevated PowerShell session run �Install-Module xWindowsEventForwarding�
 
 To confirm installation
 
--   Run Get-DSCResource to see that the resources listed above are among the DSC Resources displayed
+- Run Get-DSCResource to see that the resources listed above are among the DSC Resources displayed
 
-Requirements
-------------
+## Requirements
 
 This module requires the latest version of PowerShell (v4.0, which ships in
 Windows 8.1 or Windows Server 2012R2). To easily use PowerShell 4.0 on older
 operating systems, install WMF 4.0. Please read the installation instructions
 that are present on both the download page and the release notes for WMF 4.0.
 
-Details
--------
+## Details
 
 **xWEFCollector** resource has following properties
 
@@ -65,8 +61,7 @@ Details
 - **Query**: Expects an array of hashtables that set which events should be collected, default is all application and system logs
 - **Address**: Expects an array of source node FQDNs, default source.wef.test to prevent errors when only staging test subscription
 
-Scenario
---------
+## Scenario
 
 Windows Event Forwarding can be used in either a Collector Initiated or Source Initiated configuration.  Depending on the configuration there are unique combinations of parameters that should be used.  Before using this resource, it would be good understand the details of [WECUtil.exe](https://msdn.microsoft.com/en-us/library/windows/desktop/bb736545(v=vs.85).aspx).  That is the basis for the resource.
 
@@ -77,7 +72,7 @@ In addition, For Windows Event Collection to function there are requirements tha
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-### Event Queries ###
+### Event Queries
 
 In order to simplify querying for specific event logs, the following pattern is used.
 
@@ -89,15 +84,13 @@ For multiple queries, comma separate multiple strings in an array.
 
 @('Application:*','System:*[System[(EventID=99)]]')
 
-### List of Source Machines ###
+### List of Source Machines
 
 In a Collector Initiated scenario, a list of source machines must be provided.  The Address parameter fulfills this requirement.  When more than one machine is to be listed, provide an array of FQDNs.
 
 @('system1.domain.com', 'system2.domain.com')
 
-
-Renaming Requirements
----------------------
+## Renaming Requirements
 
 When making changes to these resources, we suggest the following practice
 
@@ -116,24 +109,25 @@ choice
 
 We reserve resource and module names without prefixes ("x" or "c") for future use (e.g. "MSFT_Resource"). If the next version of Windows Server ships with a "WindowsEventForwarding" resource, we don't want to break any configurations that use any community modifications. Please keep a prefix such as "c" on all community modifications.
 
-Versions
---------
+## Versions
 
 ### Unreleased
 
-* Updated appveyor.yml to the default template.
-* Activated the GitHub App Stale on the GitHub repository
-* Resolved lint errors.
-* Added unit test template to folder Tests\Unit.
+- Update appveyor.yml to use the default template.
+- Activated the GitHub App Stale on the GitHub repository
+- Resolved lint errors.
+- Added unit test template to folder Tests\Unit.
+- Added default template files .codecov.yml, .gitattributes, and .gitignore, and
+  .vscode folder.
+- Cleanup in README.md.
 
 ### 1.0.0.0
 
-* Initial release of xWindowsEventForwarding module with following modules:
-  * xWEFCollector
-  * xWEFSubscription
+- Initial release of xWindowsEventForwarding module with following modules:
+  - xWEFCollector
+  - xWEFSubscription
 
-Examples
---------
+## Examples
 
 **Example 1**:  Enable Collector role and a subscription that includes all Application
 and System logs from server tester.contoso.com.
